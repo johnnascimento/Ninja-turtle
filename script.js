@@ -10,12 +10,15 @@ const Turtle = function(name)  {
 };
 
 Turtle.prototype.weapon = function(weapon, number) {
-  this.weapon = weapon;
-  return `My weapon is` ;
+  this.weapon = (number <= 2) ? number + ' ' + weapon + ' weapons': number + ' ' + weapon + ' weapon' ;
+  return `${name} has ${weapon}`;
 };
 
 let raph = new Turtle('Raphael');
 console.log(raph.sayHi());
 console.log(raph.name);
-console.log(raph.weapon('Baston'));
+console.log(`${raph.name} ${raph.weapon('Baston', 1)}`);
+console.log('Raph is prototype of Turtle?', raph.isPrototypeOf(Turtle));
 
+let hasProperty = raph.hasOwnProperty(name);
+console.log('has own prototype name? ', hasProperty);
