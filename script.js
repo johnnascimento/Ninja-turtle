@@ -2,10 +2,22 @@ console.log("*******************************");
 console.log("Ninja turtle script");
 console.log("*******************************");
 
+// Helpers
+const d = document;
+const b = d.body || d.bodyElement;
+const docQuery = (elem) => {
+  return d.querySelector(elem);
+};
+const w = window;
+const $contentSpot = docQuery('.contentSpot');
+const cl = (text, elem) => {
+  return console.log('%c '+text, 'font-size: 16px; font-weight: 700; color: coral;', elem);
+};
+
 const Turtle = function(name)  {
   this.name = name;
   this.sayHi = () => {
-    return `Hey dudde, my name is ${this.name}.`;
+    return cl(`Hey dudde, my name is ${this.name}.`);
   };
 };
 
@@ -15,10 +27,15 @@ Turtle.prototype.weapon = function(weapon, number) {
 };
 
 let raph = new Turtle('Raphael');
-console.log(raph.sayHi());
-console.log(raph.name);
+cl('Raph saying hi', raph.sayHi());
+console.log(raph.weapon);
 console.log(`${raph.name} ${raph.weapon('Baston', 1)}`);
-console.log('Raph is prototype of Turtle?', raph.isPrototypeOf(Turtle));
 
-let hasProperty = raph.hasOwnProperty(name);
-console.log('has own prototype name? ', hasProperty);
+cl(raph.weapon);
+cl(raph.hasOwnProperty('name'));
+cl(raph.hasOwnProperty('sayHi'));
+
+let don = new Turtle('Donatello');
+cl(don.name);
+cl(don.weapon('sword',1));
+cl(don.sayHi());
