@@ -27,7 +27,7 @@ Turtle.prototype.weapon = function(weapon, number) {
 };
 
 let raph = new Turtle('Raphael');
-cl('Raph saying hi', raph.sayHi());
+raph.sayHi();
 console.log(raph.weapon);
 console.log(`${raph.name} ${raph.weapon('Baston', 1)}`);
 
@@ -38,4 +38,6 @@ cl(raph.hasOwnProperty('sayHi'));
 let don = new Turtle('Donatello');
 cl(don.name);
 cl(don.weapon('sword',1));
-cl(don.sayHi());
+don.sayHi();
+
+cl(raph.constructor.prototype);
