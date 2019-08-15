@@ -42,16 +42,16 @@ const Turtle = function(name, color)  {
   var _name = name;
   var _color = color;
   
-  this.getColor = () => {
-    _color = color;
+  this.getColor = (color) => {
+    _color = this.color;
     return _color;
   };
   
-  this.setColor = () => {
+  this.setColor = (color) => {
     if(typeof color !== 'string') {
       throw error('color is not of the string type');
     } else {
-      _color = color;
+      _color = this.color;
       return _color;
     }
   };
