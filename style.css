@@ -1,0 +1,48 @@
+article {
+  font-size: 0;
+}
+
+section {
+  display: inline-block;
+  position: relative;
+  border: 1px solid #e5e5e5;
+  vertical-align: top;
+  padding: 16px;
+  margin: 0 4px;
+}
+
+section > div {
+  min-height: 35px;
+  min-width: 35px;
+  vertical-align: middle;
+}
+
+.pin-location {
+  display: block;
+  position: relative;
+  height: 35px;
+  width: 35px;
+  background: crimson;
+  font-size: 0;
+  
+  border-radius: 50% 50% 0 50%;
+  transform: rotateZ(45deg);
+}
+
+.pin-location:before {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radio-bg {
+  background-image: radial-gradient(at 50% 50%, grey 25%, darkgrey, lightgrey);
+  background-position: center;
+}
