@@ -43,6 +43,26 @@ section > div {
 }
 
 .radio-bg {
-  background-image: radial-gradient(at 50% 50%, grey 25%, darkgrey, lightgrey);
+  background-image: radial-gradient(at 50% 50%, #fff 25%, #f2f2f2, #e5e5e5);
   background-position: center;
+}
+
+.radio-bg:hover {
+  background-image: radial-gradient(at 50% 50%, #fff 25%, #f2f2f2, #e5e5e5);
+  background-position: center;
+  animation: hovering 300ms linear;
+}
+
+@keyframes hovering {
+  0% {
+    background-image: radial-gradient(at 50% 50%, #fff, #e5e5e5);
+  }
+  
+  50% {
+    background-image: radial-gradient(at 50% 15%, #e5e5e5, #b3b3b3);
+  }
+  
+  100% {
+    background-image: radial-gradient(at 50% 100%, transparent, transparent);
+  }
 }
