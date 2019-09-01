@@ -55,14 +55,14 @@ section > div {
 
 @keyframes hovering {
   0% {
-    background-image: radial-gradient(at 50% 50%, #fff, #e5e5e5);
+    background-image: radial-gradient(at 50% 0%, #e5e5e5, #b3b3b3);
   }
   
   50% {
-    background-image: radial-gradient(at 50% 15%, #e5e5e5, #b3b3b3);
+    background-image: radial-gradient(at 50% 50%, #e5e5e5, #b3b3b3);
   }
   
   100% {
-    background-image: radial-gradient(at 50% 100%, transparent, transparent);
+    background-image: radial-gradient(at 50% 100%, #e5e5e5, #b3b3b3);
   }
 }
