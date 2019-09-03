@@ -84,6 +84,21 @@ Turtle.prototype.move = function(up, right, down, left) {
   }
 };
 
+Turtle.prototype.toString = function() {
+  return `A turtle called ${this.name}`;
+};
+
+// Redefining / Overriding a prototype
+// ------------------------------------
+/*Turtle.prototype = {
+  attack: function() {
+    return `{this.name} tickles you \'till you cry with laughter`;
+  }
+};
+
+// Must redefine the property's constructor
+Turtle.prototype.constructor = Turtle;*/
+
 // Classes in use
 // ------------------------------------
 let raph = new Turtle('Raphael', 'red');
@@ -99,8 +114,31 @@ cl(don.name);
 cl(don.weapon('sword',1));
 don.sayHi();
 
+let mike = new Turtle('Michaellangelo', 'purple');
+mike.sayHi();
+cl('Mike\'s color BEFORE definition changes ', raph.getColor());
+
 cl(raph.constructor.prototype);
 cl(raph.attack());
 cl('raph color is ', raph.getColor());
 
+cl('getPropertyOf obj ', Object.prototype.isPrototypeOf(raph));
+cl('dunder method ', raph.__proto__);
+cl('Is rpototyoe of: ', Turtle.isPrototypeOf(raph));
+cl('Has own property ', raph.hasOwnProperty('name'));
+cl('Has own property ', raph.hasOwnProperty('weapon'));
+
+
+cl('was intantiated from another obj: ');
+// 2 instanceOf Number; // Check it out
+
+cl('toString method redefined: ', raph.toString());
+
+Object.getOwnPropertyDescriptor('don', 'color');
+
+Object.defineProperty(mike, 'color', {
+  value: 'blue', enumerable: true, writable: false 
+});
+
+cl('Mike\'s color after definition changes ', raph.getColor());
 //dPrint('print sth', 'myElement', '#');
