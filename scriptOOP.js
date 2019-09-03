@@ -56,7 +56,7 @@ cl(spiderman.changeCostume());
 gwen = Object.create(Human, { name: { value: 'Gwen Stacy', enumerable: true}, age: { value: 20, enumerable: true}, job: { value: 'Scientist', enumerable: true}});
 cl(gwen.name);
 
-Object.definePropertyOf(gwen, 'hairColor', {
+Object.defineProperty(gwen, 'hairColor', {
   value: 'blond',
   enumerable: true,
   writable: true
