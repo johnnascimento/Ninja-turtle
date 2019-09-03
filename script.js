@@ -134,11 +134,63 @@ cl('was intantiated from another obj: ');
 
 cl('toString method redefined: ', raph.toString());
 
-Object.getOwnPropertyDescriptor('don', 'color');
+Object.getOwnPropertyDescriptor(don, 'color');
 
 Object.defineProperty(mike, 'color', {
   value: 'blue', enumerable: true, writable: false 
 });
 
-cl('Mike\'s color after definition changes ', raph.getColor());
-//dPrint('print sth', 'myElement', '#');
+cl('Mike\'s color after definition changes ', raph.getColor())
+
+;
+//dPrint('print sth', 'myElement', '#')
+
+
+// Working with getter and setters
+
+let example = {};
+
+Object.defineProperty(example, 'sillyString', {
+  get: function() {
+    return 'Craaaaazy';
+  },
+  
+  set: function(value) {
+    return value;
+  }
+});
+
+example.sillyString = "Hi there!";
+cl(example.sillyString);
+
+// using a deeper object to dekonstrate
+
+let Dice = function() {
+  'use strict';
+  
+  let sides = '';
+  sides = 6;
+  
+  Object.defineProperty(this, 'sides', {
+    get: function() {
+      return `this dice has {this.sides} sides`;
+    },
+    set: function(value) {
+      if(value > 0) {
+        sides = value;
+        return sides;
+      } else {
+        throw new Error('The number of sides must be positive');
+      }
+    }
+  });
+};
+
+let yellowDice = new Dice();
+cl('Yellow dice ', yellowDice.sides);
+
+yellowDice.sides = 10;
+cl('Yellow dice 10 sides ', yellowDice.sides);
+
+let blueDice = new Dice();
+//blueDice.sides = 0;
