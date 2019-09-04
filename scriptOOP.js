@@ -20,7 +20,7 @@ const Human = {
   }
 };
 
-const Heroe = Object.create(Human, { getDressedUp: { 
+const HeroeVillan = Object.create(Human, { getDressedUp: { 
       value: function(){
         return `${this.name} run into an alley and put up the super heroe suit`;
       },
@@ -36,8 +36,17 @@ const Heroe = Object.create(Human, { getDressedUp: {
   },
   changeCostume: {
     value: function() {
-      return `the symbiose sticks on the costume and turn everything pitch black.
+      return `the symbiose sticks to the clothes and turn everything pitch black.
       Now you're Venon`;
+    },
+    enumerable: true,
+    writable: false
+  },
+  init: {
+    value: function(name, realName) {
+      this.name = name;
+      this.realName = realName;
+      this.init = undefined;
     },
     enumerable: true,
     writable: false
@@ -54,7 +63,7 @@ petter.age = 20;
 petter.job = 'Photographer';
 cl(petter.name);
 
-spiderman = Object.create(Heroe);
+spiderman = Object.create(HeroeVillan);
 spiderman.name = 'The spiderman';
 spiderman.realName = 'Petter Parker';
 cl(spiderman.getDressedUp());
@@ -77,4 +86,10 @@ eddie = Object.create(Human);
 eddie.init('Eddie brook', 'unknown');
 cl(eddie.name);
 cl(eddie.age);
+cl(eddie.init);
 
+venon = Object.create(HeroeVillan);
+venon.init('Eddie Brook', 'Venon');
+cl(venon.name);
+cl(venon.realName);
+cl(venon.changeCostume);
