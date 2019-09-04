@@ -49,9 +49,11 @@ cl(petter.name);
 
 spiderman = Object.create(Heroe);
 spiderman.name = 'The spiderman';
+spiderman.realName = 'Petter Parker';
 cl(spiderman.getDressedUp());
 cl(spiderman.sayHi());
 cl(spiderman.changeCostume());
+cl(spiderman.realName);
 
 gwen = Object.create(Human, { name: { value: 'Gwen Stacy', enumerable: true}, age: { value: 20, enumerable: true}, job: { value: 'Scientist', enumerable: true}});
 cl(gwen.name);
