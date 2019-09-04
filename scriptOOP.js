@@ -7,9 +7,16 @@ const Human = {
   dorso: 1,
   arms: 2,
   legs: 2,
+  name: 'name',
+  age: 'age',
   
   walk: function() {
     cl('Walking');
+  },
+  init: function(name, age) {
+    this.name = name;
+    this.age = age;
+    this.init = undefined;
   }
 };
 
@@ -65,4 +72,9 @@ Object.defineProperty(gwen, 'hairColor', {
 });
 
 cl(gwen.hairColor);
+
+eddie = Object.create(Human);
+eddie.init('Eddie brook', 'unknown');
+cl(eddie.name);
+cl(eddie.age);
 
