@@ -93,3 +93,58 @@ venon.init('Eddie Brook', 'Venon');
 cl(venon.name);
 cl(venon.realName);
 cl(venon.changeCostume);
+cl(Object.getPrototypeOf(venon) === HeroeVillan);
+cl(Object.getPrototypeOf(gwen) === Human);
+cl(Object.getPrototypeOf(venon) === Human); // expected false
+cl(HeroeVillan.isPrototypeOf(spiderman));
+
+
+/* Adding methods to the built-in objects
+-----------------------------------------*/
+
+/* Is even or odd number method */
+Number.prototype.isEven = function() {
+  return this%2 === 0;
+};
+
+Number.prototype.isOdd = function() {
+  return this%2 === 1;
+};
+
+let seven = 7;
+
+cl(seven.isEven());
+cl(seven.isOdd());
+
+
+/* Adding first and last elem on Array's index
+-----------------------------------------*/
+Array.prototype.first = function() {
+  return this[0];
+};
+
+Array.prototype.last = function() {
+  return this[this.length - 1];
+};
+
+justiceLeague = ['Wonder Woman', 'Aquaman', 'Batman', 'The Flash', 'Superman', 'Ajax'];
+cl(justiceLeague.first());
+cl(justiceLeague.last());
+
+Array.prototype.delete = function(i) {
+  return this.splice(i, 1);
+};
+
+justiceLeague.delete(1);
+cl(justiceLeague);
+
+/* Monkey-patching the String method */
+String.prototype.trim = String.prototype.trim || function() {
+  return this.replace(/^\s+|\s+$/, '');
+};
+
+trimTester = '   My name is John    ';
+cl(trimTester);
+
+trimTester.trim();
+cl(trimTester);
