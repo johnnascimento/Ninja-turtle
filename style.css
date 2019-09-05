@@ -24,7 +24,7 @@ section > div {
   width: 35px;
   background: crimson;
   font-size: 0;
-  
+
   border-radius: 50% 50% 0 50%;
   transform: rotateZ(45deg);
 }
@@ -43,26 +43,25 @@ section > div {
 }
 
 .radio-bg {
-  background-image: radial-gradient(at 50% 50%, #fff 25%, #f2f2f2, #e5e5e5);
+  background-image: radial-gradient(at 50% 50%, #fff 25%, #fff, #fff);
   background-position: center;
 }
 
 .radio-bg:hover {
-  background-image: radial-gradient(at 50% 50%, #fff 25%, #f2f2f2, #e5e5e5);
   background-position: center;
-  animation: hovering 300ms linear;
+  animation: hovering 300ms infinite;
 }
 
 @keyframes hovering {
   0% {
-    background-image: radial-gradient(at 50% 0%, #e5e5e5, #b3b3b3);
+    background-image: radial-gradient(at 50% 50%, #ffffff, #ffffff, 0, #f2f2f2, #fff);
   }
-  
+
   50% {
-    background-image: radial-gradient(at 50% 50%, #e5e5e5, #b3b3b3);
+    background-image: radial-gradient(at 50% 50%, #ffffff, #ffffff, 25%, #f2f2f2, #fff);
   }
-  
+
   100% {
-    background-image: radial-gradient(at 50% 100%, #e5e5e5, #b3b3b3);
+    background-image: radial-gradient(at 50% 50%, #ffffff, #ffffff, 50%, #f2f2f2, #fff);
   }
 }

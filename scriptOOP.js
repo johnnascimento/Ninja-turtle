@@ -9,7 +9,7 @@ const Human = {
   legs: 2,
   name: 'name',
   age: 'age',
-  
+
   walk: function() {
     cl('Walking');
   },
@@ -20,7 +20,7 @@ const Human = {
   }
 };
 
-const HeroeVillan = Object.create(Human, { getDressedUp: { 
+const HeroeVillan = Object.create(Human, { getDressedUp: {
       value: function(){
         return `${this.name} run into an alley and put up the super heroe suit`;
       },
@@ -93,3 +93,11 @@ venon.init('Eddie Brook', 'Venon');
 cl(venon.name);
 cl(venon.realName);
 cl(venon.changeCostume);
+cl(venon.sayHi(), '');
+
+cl('Checking for inheritance', Object.getOwnPropertyDescriptor(venon, 'name'));
+cl('Checking for property - True expected', venon.hasOwnProperty('name'));
+cl('Checking for property - False expected', venon.hasOwnProperty('changeCostume'));
+cl('Checking for parent prototype', Human.isPrototypeOf(venon));
+cl('Checking for parent prototype', Human.isPrototypeOf(HeroeVillan));
+cl('Checking for parent prototype', Human.isPrototypeOf(gwen));
