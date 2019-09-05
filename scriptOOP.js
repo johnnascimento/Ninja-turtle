@@ -148,3 +148,12 @@ cl(trimTester);
 
 trimTester.trim();
 cl(trimTester);
+
+/* Checking for the number of arguments typed in */
+let args = ['bola', 'carro', 50];
+
+function countNumberArguments(...args) {
+  return cl('Numbet of arguments is: ', ...args.length);
+}
+
+countNumberArguments();
