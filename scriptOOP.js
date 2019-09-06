@@ -93,11 +93,11 @@ venon.init('Eddie Brook', 'Venon');
 cl(venon.name);
 cl(venon.realName);
 cl(venon.changeCostume);
+cl(venon.walk());
 cl(Object.getPrototypeOf(venon) === HeroeVillan);
 cl(Object.getPrototypeOf(gwen) === Human);
 cl(Object.getPrototypeOf(venon) === Human); // expected false
 cl(HeroeVillan.isPrototypeOf(spiderman));
-
 
 /* Adding methods to the built-in objects
 -----------------------------------------*/
@@ -148,12 +148,3 @@ cl(trimTester);
 
 trimTester.trim();
 cl(trimTester);
-
-/* Checking for the number of arguments typed in */
-let args = ['bola', 'carro', 50];
-
-function countNumberArguments(...args) {
-  return cl('Numbet of arguments is: ', ...args.length);
-}
-
-countNumberArguments();
