@@ -148,3 +148,9 @@ cl(trimTester);
 
 trimTester.trim();
 cl(trimTester);
+
+Object.defineProperty(prototype, 'mixin', {
+  value: function(object) {
+    
+  }
+});
