@@ -17,6 +17,16 @@ section > div {
   vertical-align: middle;
 }
 
+section.text-on {
+  font-size: 16px;
+}
+
+section.full-width {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .pin-location {
   display: block;
   position: relative;
@@ -197,6 +207,28 @@ section > div {
   border-radius: 40%;
   transform: translate(30px, -50%);
   transition: 300ms ease-in-out;
+}
+
+
+details {
+  padding: 8px;
+}
+
+details[open] {
+  padding: 8px;
+}
+
+details[open] > p {
+  background: #f2f2f2;
+  padding: 8px 16px;
+  margin-top: 0;
+}
+
+summary {
+  background: purple;
+  color: white;
+  padding: 8px;
+  display: block;
 }
 
 /*Animation*/
