@@ -129,6 +129,24 @@ section > div {
   z-index: 2;
 }
 
+
+.switchWrapper {
+  height: 20px;
+  width: 80px;
+  border-radius: 40%;
+  background-color: #f2f2f2;
+  border: 1px solid #29c7c7;
+}
+
+.switchButton {
+  background: blue;
+  font-size: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  
+}
+
 /*Animation*/
 @keyframes hovering {
   0% {
