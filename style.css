@@ -25,6 +25,7 @@ section.full-width {
   display: block;
   width: 100%;
   box-sizing: border-box;
+  margin: 4px 0;
 }
 
 .pin-location {
@@ -229,6 +230,111 @@ summary {
   color: white;
   padding: 8px;
   display: block;
+}
+
+.pencil {
+  height: 120px;
+  width: 20px;
+ /* background-color: #0079f3; */
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  border: 4px solid #0079f3;
+  background: #0079f3;
+  font-size: 0;
+  /* border-bottom: none; */
+}
+
+.pencil:before {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  height: 30px;
+  width: 20px;
+  left: -4px;
+  right: 0;
+  top: -4px;
+  bottom: auto;
+  margin: 0 auto;
+  padding: 0;
+  border: 4px solid gold;
+  background: gold;
+}
+
+.pencil:after {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  height: 5px;
+  width: 20px;
+  left: -4px;
+  right: 0;
+  top: -4px;
+  bottom: auto;
+  margin: 0 auto;
+  padding: 0;
+  border: 4px solid #f2f2f2;
+  background: #f2f2f2;
+}
+
+.tip-part {
+  height: 15px;
+  width: 15px;
+  border-right: 4px solid beige;
+  border-bottom: 4px solid beige;
+  border-top: none;
+  border-left: none;
+  transform: rotateZ(45deg);
+  position: relative;
+  margin: 0 auto;
+  top: -8px;
+  border-radius: 25px 5px 0 5px;
+  background: beige;
+}
+
+.tip-part:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: auto;
+  right: -4px;
+  bottom: -4px;
+  left: auto;
+  height: 4px;
+  width: 4px;
+  background-color: #333333;
+  transform: rotateZ(90deg);
+}
+
+.google-wrapper {
+  position: relative;
+  background: yellow;
+}
+
+.google {
+  height: 15px;
+  width: 10px;
+  border-right: 10px solid #0079f3;
+  border-top: 10px solid #0079f3;
+  border-bottom: 10px solid #0079f3;
+  border-radius: 0 0 500px 0;
+}
+
+.google:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 15px;
+  width: 15px;
+  border: 10px solid gray;
+  border-right-color: transparent;
+  border-top-color: crimson;
+  border-left-color: gold;
+  border-bottom-color: lightgreen;
+  border-radius: 100%;
 }
 
 /*Animation*/
