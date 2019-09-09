@@ -308,33 +308,39 @@ summary {
 }
 
 .google-wrapper {
-  position: relative;
-  background: yellow;
+  display: block;
+  position: relative
 }
 
 .google {
-  height: 15px;
-  width: 10px;
-  border-right: 10px solid #0079f3;
-  border-top: 10px solid #0079f3;
-  border-bottom: 10px solid #0079f3;
-  border-radius: 0 0 500px 0;
+  margin-top: 30px;
+  margin-left: 30px;
+  display: block;
+  width: 15px;
+  height: 10px;
+  position: relative;
+  border-right: 10px solid #4285f4;
+  border-top: 10px solid #4285f4;
+  border-bottom: 10px solid #4285f4;
+  box-sizing: content-box;
+  border-radius: 0 0 250px 0;
 }
 
 .google:before {
   content: " ";
   display: block;
   position: absolute;
-  left: 0;
-  top: 0;
-  height: 15px;
-  width: 15px;
-  border: 10px solid gray;
-  border-right-color: transparent;
-  border-top-color: crimson;
-  border-left-color: gold;
-  border-bottom-color: lightgreen;
-  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  border: 10px solid orange;
+  border-top-color: #ea4335;
+  border-left-color: #fbbc05;
+  border-bottom-color: #34a853;
+  border-right: 10px solid transparent;
+  border-radius: 200px;
+  box-sizing: border-box;
+  right: -10px;
+  top: -30px;
 }
 
 /*Animation*/
