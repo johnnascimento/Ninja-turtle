@@ -149,8 +149,38 @@ cl(trimTester);
 trimTester.trim();
 cl(trimTester);
 
-Object.defineProperty(prototype, 'mixin', {
-  value: function(object) {
-    
+Object.defineProperty(Object.prototype, ‘mixin’, {
+  enumerable: false,
+  writable: false,
+  configurable: false,
+  value: function() {
+    for (var i = 0, max = arguments.length ; i < max ; i++) {
+      if(typeof arguments[i] === “object”) {
+        var object = arguments[i];
+        for (var property in object) {
+          if (object.hasOwnProperty(property)) {
+            if (typeof object[property] === “object”) {
+              this[property] = (object[property].constructor === Array);
+              ↵ ? [] : {};
+              this[property].mixin(object[property]);
+            } else {
+              var description = Object.getOwnPropertyDescriptor(object,
+                ↵property);
+              Object.defineProperty(this,property, description);
+            }
+          }
+        }
+      }
+    }
+    return this;
   }
 });
+
+let a = {};
+let b = {
+  name: 'John',
+  surname: 'Nascimento'
+};
+
+a.mixin(b);
+console.log(a.name + ' ' + a.surname);
