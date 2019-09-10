@@ -17,6 +17,17 @@ section > div {
     vertical-align: middle;
 }
 
+section.text-on {
+  font-size: 16px;
+}
+
+section.full-width {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 4px 0;
+}
+
 .pin-location {
     display: block;
     position: relative;
@@ -111,6 +122,209 @@ body .pricebox .pricebox__tabs::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
 /* End customization */
+
+
+.switchWrapper {
+  height: 20px;
+  width: 60px;
+  border-radius: 40%;
+  background-color: #f2f2f2;
+  border: 1px solid #29c7c7;
+  position: relative;
+}
+
+.switchButton {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  margin: 0 4px;
+  padding: 4px 8px;
+}
+
+.switchBg {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: lightgray;
+  border-radius: 40%;
+  transition: 300ms;
+  z-index: 1;
+}
+
+.switchButton:checked ~ .switchBg {
+  background: lightblue;
+}
+
+.switchBg:before {
+  content: " ";
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 4px;
+  border-radius: 100%;
+  background: gray;
+  border-radius: 40%;
+  visibility: visible;
+  transform: translate(4px, -50%);
+  transition: 300ms;
+  z-index: 3;
+}
+
+.switchButton:checked ~ .switchBg:before {
+  background: white;
+  right: auto;
+  left: auto;
+  border-radius: 40%;
+  transform: translate(30px, -50%);
+  transition: 300ms ease-in-out;
+}
+
+
+details {
+  padding: 8px;
+}
+
+details[open] {
+  padding: 8px;
+}
+
+details[open] > p {
+  background: #f2f2f2;
+  padding: 8px 16px;
+  margin-top: 0;
+}
+
+summary {
+  background: purple;
+  color: white;
+  padding: 8px;
+  display: block;
+}
+
+.pencil {
+  height: 120px;
+  width: 20px;
+ /* background-color: #0079f3; */
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  border: 4px solid #0079f3;
+  background: #0079f3;
+  font-size: 0;
+  /* border-bottom: none; */
+}
+
+.pencil:before {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  height: 30px;
+  width: 20px;
+  left: -4px;
+  right: 0;
+  top: -4px;
+  bottom: auto;
+  margin: 0 auto;
+  padding: 0;
+  border: 4px solid gold;
+  background: gold;
+}
+
+.pencil:after {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  height: 5px;
+  width: 20px;
+  left: -4px;
+  right: 0;
+  top: -4px;
+  bottom: auto;
+  margin: 0 auto;
+  padding: 0;
+  border: 4px solid #f2f2f2;
+  background: #f2f2f2;
+}
+
+.tip-part {
+  height: 15px;
+  width: 15px;
+  border-right: 4px solid beige;
+  border-bottom: 4px solid beige;
+  border-top: none;
+  border-left: none;
+  transform: rotateZ(45deg);
+  position: relative;
+  margin: 0 auto;
+  top: -8px;
+  border-radius: 25px 5px 0 5px;
+  background: beige;
+}
+
+.tip-part:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: auto;
+  right: -4px;
+  bottom: -4px;
+  left: auto;
+  height: 4px;
+  width: 4px;
+  background-color: #333333;
+  transform: rotateZ(90deg);
+}
+
+.google-wrapper {
+  display: block;
+  position: relative
+}
+
+.google {
+  margin-top: 30px;
+  margin-left: 30px;
+  display: block;
+  width: 15px;
+  height: 10px;
+  position: relative;
+  border-right: 10px solid #4285f4;
+  border-top: 10px solid #4285f4;
+  border-bottom: 10px solid #4285f4;
+  box-sizing: content-box;
+  border-radius: 0 0 250px 0;
+}
+
+.google:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border: 10px solid orange;
+  border-top-color: #ea4335;
+  border-left-color: #fbbc05;
+  border-bottom-color: #34a853;
+  border-right: 10px solid transparent;
+  border-radius: 200px;
+  box-sizing: border-box;
+  right: -10px;
+  top: -30px;
+}
 
 /*Animation*/
 @keyframes hovering {

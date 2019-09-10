@@ -101,11 +101,12 @@ cl('Checking for property - False expected', venon.hasOwnProperty('changeCostume
 cl('Checking for parent prototype', Human.isPrototypeOf(venon));
 cl('Checking for parent prototype', Human.isPrototypeOf(HeroeVillan));
 cl('Checking for parent prototype', Human.isPrototypeOf(gwen));
+
+cl(venon.walk());
 cl(Object.getPrototypeOf(venon) === HeroeVillan);
 cl(Object.getPrototypeOf(gwen) === Human);
 cl(Object.getPrototypeOf(venon) === Human); // expected false
 cl(HeroeVillan.isPrototypeOf(spiderman));
-
 
 /* Adding methods to the built-in objects
 -----------------------------------------*/
@@ -163,5 +164,58 @@ let args = ['bola', 'carro', 50, 50, 'oi'];
 function countNumberArguments(args) {
   return cl('Numbet of arguments is: ', arguments.length);
 }
-
 countNumberArguments(args, 'bola', 'line', 'wheat', 'straw');
+
+Object.prototype.melon = function() {
+  return cl('I am a melon');
+};
+
+let melonObj = melon();
+melonObj;
+
+let i = 0;
+
+Object.defineProperty(Object.prototype, 'mixin', {
+  configurable: false,
+  writable: false,
+  enumerable: false,
+
+  value: function() {
+    for(var i = 0, max = arguments.length; i < max; i++) {
+      if(typeof arguments[i] === 'object') {
+        object = arguments[i];
+
+        for(var property in object) {
+          if(object.hasOwnProperty(property)){
+            if(typeof object[property] === 'object') {
+              this[property] = (object[property].constructor === 'array') ? [] : {};
+              this[property].mixin(object[property]);
+            } else {
+              var description = Object.getOwnPropertyDescriptor(object, property);
+              Object.defineProperty(this, property, description);
+            }
+          }
+        }
+      }
+    }
+    return this;
+  }
+});
+
+let emptyObj = {};
+let firstNameLastName = {
+  name: 'John',
+  surname: 'Nascimento',
+  degree: {
+    it: 'Facsp',
+    we: 'Whatever'
+  },
+  grades: {
+    array: [1, 5, 9]
+  }
+};
+
+emptyObj.mixin(firstNameLastName);
+console.log(emptyObj.name + ' ' + emptyObj.surname);
+cl('Degree ', emptyObj.degree.it);
+cl('Grades ', emptyObj.grades.array);
