@@ -1,67 +1,128 @@
 article {
-  font-size: 0;
+    font-size: 0;
 }
 
 section {
-  display: inline-block;
-  position: relative;
-  border: 1px solid #e5e5e5;
-  vertical-align: top;
-  padding: 16px;
-  margin: 0 4px;
+    display: inline-block;
+    position: relative;
+    border: 1px solid #e5e5e5;
+    vertical-align: top;
+    padding: 16px;
+    margin: 0 4px;
 }
 
 section > div {
-  min-height: 35px;
-  min-width: 35px;
-  vertical-align: middle;
+    min-height: 35px;
+    min-width: 35px;
+    vertical-align: middle;
 }
 
 .pin-location {
-  display: block;
-  position: relative;
-  height: 35px;
-  width: 35px;
-  background: crimson;
-  font-size: 0;
+    display: block;
+    position: relative;
+    height: 35px;
+    width: 35px;
+    background: crimson;
+    font-size: 0;
 
-  border-radius: 50% 50% 0 50%;
-  transform: rotateZ(45deg);
+    border-radius: 50% 50% 0 50%;
+    transform: rotateZ(45deg);
 }
 
 .pin-location:before {
-  content: " ";
-  display: inline-block;
-  position: absolute;
-  height: 15px;
-  width: 15px;
-  border-radius: 100%;
-  background: white;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .radio-bg {
-  background-image: radial-gradient(at 50% 50%, #fff 25%, #fff, #fff);
-  background-position: center;
+    background-image: radial-gradient(at 50% 50%, #fff 25%, #fff, #fff);
+    background-position: center;
 }
 
 .radio-bg:hover {
-  background-position: center;
-  animation: hovering 300ms infinite;
+    background-position: center;
+    animation: hovering 300ms infinite;
 }
 
+.lock {
+    width: 100px;
+    height: 80px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, gold, orange);
+    position: relative;
+    margin-top: 100px;
+    line-height: 80px;
+    text-align: center;
+}
+
+.lock:before {
+    content: " ";
+    display: block;
+    width: 70px;
+    height: 60px;
+    border-radius: 35px 35px 0 0;
+    border: 20px solid #aaa;
+    border-bottom: none;
+    box-sizing: border-box;
+    position: absolute;
+    top: -60px;
+    left: 15px;
+}
+
+.keyhole {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #000;
+}
+
+.keyhole:before {
+    content: " ";
+    display: block;
+    width: 0;;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom: 30px solid #000;
+}
+
+
+
+
+/* Start customizing scrolling bar */
+body .pricebox .pricebox__tabs::-webkit-scrollbar {
+    width: 8px;
+}
+
+body .pricebox .pricebox__tabs::-webkit-scrollbar-thumb {
+    background-color: #ea6636;
+    outline: 1px solid #FFC100;
+}
+
+body .pricebox .pricebox__tabs::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+/* End customization */
+
+/*Animation*/
 @keyframes hovering {
-  0% {
-    background-image: radial-gradient(at 50% 50%, #ffffff, #ffffff, 0, #f2f2f2, #fff);
-  }
+    0% {
+        background-image: radial-gradient(at 50% 50%, #ffffff, #ffffff, 0, #f2f2f2, #fff);
+    }
 
-  50% {
-    background-image: radial-gradient(at 50% 50%, #ffffff, #ffffff, 25%, #f2f2f2, #fff);
-  }
+    50% {
+        background-image: radial-gradient(at 50% 50%, #ffffff, #ffffff, 25%, #f2f2f2, #fff);
+    }
 
-  100% {
-    background-image: radial-gradient(at 50% 50%, #ffffff, #ffffff, 50%, #f2f2f2, #fff);
-  }
+    100% {
+        background-image: radial-gradient(at 50% 50%, #ffffff, #ffffff, 50%, #f2f2f2, #fff);
+    }
 }
