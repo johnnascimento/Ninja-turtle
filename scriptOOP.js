@@ -149,24 +149,33 @@ cl(trimTester);
 trimTester.trim();
 cl(trimTester);
 
-Object.defineProperty(Object.prototype, ‘mixin’, {
-  enumerable: false,
-  writable: false,
+Object.prototype.melon = function() {
+  return cl('I am a melon');
+};
+
+let melonObj = melon();
+melonObj;
+
+let i = 0;
+
+Object.defineProperty(Object.prototype, 'mixin', {
   configurable: false,
+  writable: false,
+  enumerable: false,
+  
   value: function() {
-    for (var i = 0, max = arguments.length ; i < max ; i++) {
-      if(typeof arguments[i] === “object”) {
-        var object = arguments[i];
-        for (var property in object) {
-          if (object.hasOwnProperty(property)) {
-            if (typeof object[property] === “object”) {
-              this[property] = (object[property].constructor === Array);
-              ↵ ? [] : {};
+    for(var i = 0, max = arguments.length; i < max; i++) {
+      if(typeof arguments[i] === 'object') {
+        object = arguments[i];
+        
+        for(var property in object) {
+          if(object.hasOwnProperty(property)){
+            if(typeof object[property] === 'object') {
+              this[property] = (object[property].constructor === 'array') ? [] : {};
               this[property].mixin(object[property]);
             } else {
-              var description = Object.getOwnPropertyDescriptor(object,
-                ↵property);
-              Object.defineProperty(this,property, description);
+              var description = Object.getOwnPropertyDescriptor(object, property);
+              Object.defineProperty(this, property, description);
             }
           }
         }
@@ -176,11 +185,18 @@ Object.defineProperty(Object.prototype, ‘mixin’, {
   }
 });
 
-let a = {};
-let b = {
+let emptyObj = {};
+let firstNameLastName = {
   name: 'John',
-  surname: 'Nascimento'
+  surname: 'Nascimento',
+  degree: {
+    it: 'Facsp',
+    we: 'Whatever'
+  },
+  grades: [1,5,9]
 };
 
-a.mixin(b);
-console.log(a.name + ' ' + a.surname);
+emptyObj.mixin(firstNameLastName);
+console.log(emptyObj.name + ' ' + emptyObj.surname);
+cl('Degree ', emptyObj.degree.it);
+cl('Grades ', emptyObj.grades);
