@@ -198,5 +198,10 @@ let firstNameLastName = {
 
 emptyObj.mixin(firstNameLastName);
 console.log(emptyObj.name + ' ' + emptyObj.surname);
+cl('emptyObj\'s name: ', emptyObj.name);
 cl('Degree ', emptyObj.degree.it);
 cl('Grades ', emptyObj.grades);
+
+firstNameLastName.surname = 'Lenon';
+cl('firdtname lastname - surname: ', firstNameLastName.surname);
+cl('emptyObj\'s name after its creator changes: ', emptyObj.name;
