@@ -156,6 +156,8 @@ Object.prototype.melon = function() {
 let melonObj = melon();
 melonObj;
 
+/* My awesome mixin object
+Still need improvements such as copy a nest array with nested objects and other arrays */
 let i = 0;
 
 Object.defineProperty(Object.prototype, 'mixin', {
@@ -182,6 +184,18 @@ Object.defineProperty(Object.prototype, 'mixin', {
       }
     }
     return this;
+  }
+});
+
+/* Object coppier, using the mixin method */
+Object.defineProperty(Object.prototype, 'copy', {
+  configurable: false,
+  writable: false,
+  enumerable: false,
+  value: function() {
+    var object = Object.create(Object.getPrototypeOf(this));
+    object.mixin(this);
+    return object;
   }
 });
 
@@ -214,3 +228,19 @@ cl('age before initiation: ', carnage.name);
 carnage.mixin({name: "A mad guy", age: "have no clue"});
 cl('name after initiation: ', carnage.name);
 cl('age after initiation: ', carnage.name);
+
+
+/* Using the copy method */
+let antiHeroe = Object.copy(HeroeVillan);
+Object.defineProperty(antiHeroe, 'changeCostume', {
+  writable: true,
+  configurable: false,
+  enumerable: true,
+  value: function() {
+    return `Costumes are bullshit`;
+  }
+});
+
+let punisher = Object.create(antiHeroe);
+cl('punisher\'s name: ', punisher.name + ' ' + punisher.surname);
+cl('punisher costume change ', punisher.changeCostume);
