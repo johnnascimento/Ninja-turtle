@@ -203,5 +203,14 @@ cl('Degree ', emptyObj.degree.it);
 cl('Grades ', emptyObj.grades);
 
 firstNameLastName.surname = 'Lenon';
-cl('firdtname lastname - surname: ', firstNameLastName.surname);
-cl('emptyObj\'s name after its creator changes: ', emptyObj.name;
+cl('firstname lastname - surname: ', firstNameLastName.surname);
+cl('emptyObj\'s name after its creator changes: ', emptyObj.name);
+
+/*mixin real test 1 */
+let carnage = Object.create(HeroeVillan);
+cl('name before initiation: ', carnage.name);
+cl('age before initiation: ', carnage.name);
+
+carnage.mixin({name: "A mad guy", age: "have no clue"});
+cl('name after initiation: ', carnage.name);
+cl('age after initiation: ', carnage.name);

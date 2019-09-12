@@ -357,3 +357,57 @@ summary {
     background-image: radial-gradient(at 50% 100%, #e5e5e5, #b3b3b3);
   }
 }
+
+@keyframes go-and-get-back {
+  0% {
+    transform: translate(0, -50%);
+  }
+  50% {
+    transform: translate(100%, -50%);
+  }
+  100% {
+    transform: translate(0, -50%);
+  }
+}
+
+.horizontal-loader-wrapper {
+  padding: 48px auto;
+  position: relative;
+  display: inline-blocke;
+}
+
+.horizontal-loader {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  right: 0;
+  left: 0;
+  height: 8px;
+  width: 100%;
+  background-color: grey;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  border-radius: 25%;
+  box-sizing: content-box;
+}
+
+.horizontal-loader:before {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  left: 0;
+  right: auto;
+  height: 4px;
+  width: 18px;
+  background-color: #00f879;
+  border-radius: 25%;
+  box-sizing: border-box;
+  transform: translate(0, -50%);
+  animation-name: go-and-get-back;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
