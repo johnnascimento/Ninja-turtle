@@ -244,3 +244,11 @@ Object.defineProperty(antiHeroe, 'changeCostume', {
 let punisher = Object.create(antiHeroe);
 cl('punisher\'s name: ', punisher.name + ' ' + punisher.surname);
 cl('punisher costume change ', punisher.changeCostume);
+
+/* Strategy used to add functionality to other objects without compromising jeopardizing creating an uneanted chain of prototypes */
+
+let flight = {
+  fly: function() {
+    return `Up, up and high. ${this.name} soars in the skies`;
+  }
+}
