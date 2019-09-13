@@ -470,8 +470,9 @@ summary {
   padding: 48px;
   font-size: 16px;
   color: #f2f2f2;
-  background: linear-gradient(#0046f8, #4488ab);
+  background: linear-gradient(#0046f8, #448800);
   background-size: 200% 200%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 16), 0 3px 6px rgba(0, 0, 0, 23);
   animation-name: movingBackground;
   animation-duration: 10s;
   animation-iteration-count: infinite;
@@ -481,12 +482,12 @@ summary {
 
 @keyframes movingBackground {
   0% {
-    background-position: 0 50%;
+    background-position: 0 100%;
   }
   50% {
-    background-position: 100% 50%;
+    background-position: 100% 0;
   }
-  0% {
-    background-position: 0 50%;
+  100% {
+    background-position: 0 100%;
   }
 }
