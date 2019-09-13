@@ -418,6 +418,7 @@ summary {
   vertical-align: middle;
   text-align: center;
   box-sizing: content-box;
+  font-size: 0;
 }
 
 .music-key {
@@ -430,6 +431,7 @@ summary {
   border: 8px solid #363636;
   border-bottom: none;
   box-sizing: border-box;
+  font-size: 0;
 }
 
 .music-key:before {
@@ -441,8 +443,9 @@ summary {
   left: auto;
   right: -8px;
   box-sizing: border-box;
-  height: 15px;
-  width: 15px;
+  height: 16px;
+  width: 16px;
+  border: 1px solid #363636;
   border-radius: 50%;
   background-color: #363636;
 }
@@ -458,6 +461,32 @@ summary {
   box-sizing: border-box;
   height: 16px;
   width: 16px;
+  border: 1px solid #363636;
   border-radius: 50%;
   background-color: #363636;
+}
+
+.moving-gradient-wrapper {
+  padding: 48px;
+  font-size: 16px;
+  color: #f2f2f2;
+  background: linear-gradient(#0046f8, #4488ab);
+  background-size: 200% 200%;
+  animation-name: movingBackground;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes movingBackground {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  0% {
+    background-position: 0 50%;
+  }
 }
