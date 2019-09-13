@@ -383,7 +383,7 @@ summary {
   bottom: auto;
   right: 0;
   left: 0;
-  height: 8px;
+  height: 4px;
   width: 100%;
   background-color: grey;
   transform: translateY(-50%);
@@ -400,7 +400,7 @@ summary {
   bottom: auto;
   left: 0;
   right: auto;
-  height: 4px;
+  height: 8px;
   width: 18px;
   background-color: #00f879;
   border-radius: 25%;
@@ -410,4 +410,54 @@ summary {
   animation-timing-function: ease-in-out;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+}
+
+.music-wrapper {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  box-sizing: content-box;
+}
+
+.music-key {
+  min-height: 40px;
+  min-width: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  text-align: center;
+  border: 8px solid #363636;
+  border-bottom: none;
+  box-sizing: border-box;
+}
+
+.music-key:before {
+  content: ' ';
+  display: inline-block;
+  position: absolute;
+  top: auto;
+  bottom: -4px;
+  left: auto;
+  right: -8px;
+  box-sizing: border-box;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #363636;
+}
+
+.music-key:after {
+  content: ' ';
+  display: inline-block;
+  position: absolute;
+  top: auto;
+  bottom: -8px;
+  left: -16px;
+  right: auto;
+  box-sizing: border-box;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: #363636;
 }
