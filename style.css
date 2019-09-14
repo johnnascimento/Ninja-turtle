@@ -1,19 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
 article {
   font-size: 0;
 }
 
 section {
+  min-height: 25vh;
+  min-width: calc(25vw - 32px);
   display: inline-block;
   position: relative;
   border: 1px solid #e5e5e5;
   vertical-align: top;
   padding: 16px;
-  margin: 0 4px;
+  margin: 4px;
 }
 
-section > div {
-  min-height: 35px;
-  min-width: 35px;
+section .div-wrapper {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  right: auto;
+  top: 50%;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+section > div > div {
+  text-align: center;
+  margin: 0 auto;
+  min-width: 25px;
+  min-height: 25px;
   vertical-align: middle;
 }
 
@@ -28,6 +49,13 @@ section.full-width {
   margin: 4px 0;
 }
 
+section.half-width {
+  display: inline-block;
+  width: calc(50% - 16px);
+  box-sizing: border-box;
+  margin: 4px;
+}
+
 .pin-location {
   display: block;
   position: relative;
@@ -35,7 +63,7 @@ section.full-width {
   width: 35px;
   background: crimson;
   font-size: 0;
-  
+
   border-radius: 50% 50% 0 50%;
   transform: rotateZ(45deg);
 }
@@ -142,11 +170,10 @@ section.full-width {
 
 
 .switchWrapper {
-  height: 20px;
+  height: 35px;
   width: 60px;
   border-radius: 40%;
   background-color: #f2f2f2;
-  border: 1px solid #29c7c7;
   position: relative;
 }
 
@@ -186,15 +213,14 @@ section.full-width {
 
 .switchBg:before {
   content: " ";
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   position: absolute;
   display: block;
   top: 50%;
-  left: 4px;
-  border-radius: 100%;
+  left: -4px;
   background: gray;
-  border-radius: 40%;
+  border-radius: 100%;
   visibility: visible;
   transform: translate(4px, -50%);
   transition: 300ms;
@@ -205,7 +231,8 @@ section.full-width {
   background: white;
   right: auto;
   left: auto;
-  border-radius: 40%;
+  border-radius: 100%;
+  border: 1px solid #e5e5e5;
   transform: translate(30px, -50%);
   transition: 300ms ease-in-out;
 }
@@ -251,7 +278,7 @@ summary {
   display: inline-block;
   position: absolute;
   height: 30px;
-  width: 20px;
+  width: 100%;
   left: -4px;
   right: 0;
   top: -4px;
@@ -267,7 +294,7 @@ summary {
   display: inline-block;
   position: absolute;
   height: 5px;
-  width: 20px;
+  width: 100%;
   left: -4px;
   right: 0;
   top: -4px;
@@ -308,7 +335,7 @@ summary {
 }
 
 .google-wrapper {
-  display: block;
+  display: inline-block;
   position: relative
 }
 
@@ -343,69 +370,36 @@ summary {
   top: -30px;
 }
 
-/*Animation*/
-@keyframes hovering {
-  0% {
-    background-image: radial-gradient(at 50% 0%, #e5e5e5, #b3b3b3);
-  }
-  
-  50% {
-    background-image: radial-gradient(at 50% 50%, #e5e5e5, #b3b3b3);
-  }
-  
-  100% {
-    background-image: radial-gradient(at 50% 100%, #e5e5e5, #b3b3b3);
-  }
-}
-
-@keyframes go-and-get-back {
-  0% {
-    transform: translate(0, -50%);
-  }
-  50% {
-    transform: translate(100%, -50%);
-  }
-  100% {
-    transform: translate(0, -50%);
-  }
-}
-
 .horizontal-loader-wrapper {
-  padding: 48px auto;
+  padding: 48px 0;
   position: relative;
-  display: inline-blocke;
+  display: block;
 }
 
 .horizontal-loader {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  bottom: auto;
-  right: 0;
-  left: 0;
+  display: block;
+  position: relative;
   height: 4px;
   width: 100%;
   background-color: grey;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
   border-radius: 25%;
   box-sizing: content-box;
 }
 
 .horizontal-loader:before {
   content: " ";
-  display: inline-block;
+  display: block;
   position: absolute;
   top: 50%;
   bottom: auto;
-  left: 0;
+  left: 50%;
   right: auto;
   height: 8px;
-  width: 18px;
+  width: 25%;
   background-color: #00f879;
   border-radius: 25%;
-  box-sizing: border-box;
-  transform: translate(0, -50%);
+  box-sizing: content-box;
+  transform: translate(-50%, -50%);
   animation-name: go-and-get-back;
   animation-timing-function: ease-in-out;
   animation-duration: 1s;
@@ -439,7 +433,7 @@ summary {
   display: inline-block;
   position: absolute;
   top: auto;
-  bottom: -4px;
+  bottom: -8px;
   left: auto;
   right: -8px;
   box-sizing: border-box;
@@ -478,6 +472,101 @@ summary {
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease;
+}
+
+.loader {
+  height: 100px;
+  width: 100px;
+  border: 15px solid #01f845;
+  border-top: 15px solid #0079f8;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  margin: 16px auto;
+  padding: 0;
+  animation: rotateIt 1s infinite ease-in-out;
+  -webkit-animation: rotateIt 1s infinite ease-in-out; /* Safari */
+}
+
+.loaderTwo {
+  height: 100px;
+  width: 100px;
+  border: 5px solid lightgrey;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  margin: 16px auto;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+.loaderTwo:before {
+  content: " ";
+  height: 120px;
+  width: 120px;
+  border: 15px solid transparent;
+  border-top-color: #f87800;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: -10px;
+  bottom: 0px;
+  left: -10px;
+  right: 0px
+  bottom: auto;
+  right: auto;
+  margin: 0 auto;
+  padding: 0;
+  opacity: 0.2;
+  box-sizing: border-box;
+/*   transform: rotateZ(90deg); */
+   animation: rotateItTwo 5000s infinite ease-in-out;
+  -webkit-animation: rotateItTwo 5s infinite ease-in-out; /* Safari */
+}
+
+/*Animation*/
+@keyframes rotateIt {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes rotateItTwo {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes hovering {
+  0% {
+    background-image: radial-gradient(at 50% 0%, #e5e5e5, #b3b3b3);
+  }
+
+  50% {
+    background-image: radial-gradient(at 50% 50%, #e5e5e5, #b3b3b3);
+  }
+
+  100% {
+    background-image: radial-gradient(at 50% 100%, #e5e5e5, #b3b3b3);
+  }
+}
+
+@keyframes go-and-get-back {
+  0% {
+    transform: translate(-200%, -50%);
+  }
+  50% {
+    transform: translate(100%, -50%);
+  }
+  100% {
+    transform: translate(-200%, -50%);
+  }
 }
 
 @keyframes movingBackground {
