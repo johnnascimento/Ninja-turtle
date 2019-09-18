@@ -445,7 +445,7 @@ summary {
   box-sizing: border-box;
   height: 16px;
   width: 16px;
-  border: 1px solid #363636;
+  /*border: 1px solid #363636;*/
   border-radius: 50%;
   background-color: #363636;
 }
@@ -455,13 +455,13 @@ summary {
   display: inline-block;
   position: absolute;
   top: auto;
-  bottom: -8px;
+  bottom: -4px;
   left: -16px;
   right: auto;
   box-sizing: border-box;
   height: 16px;
   width: 16px;
-  border: 1px solid #363636;
+ /* border: 1px solid #363636; */
   border-radius: 50%;
   background-color: #363636;
 }
