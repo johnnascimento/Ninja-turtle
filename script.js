@@ -37,16 +37,16 @@ const Turtle = function(name, color)  {
   this.sayHi = () => {
     return cl(`Hey dudde, my name is ${this.name}.`);
   };
-  
+
   // these variables cannot be accessed from the outside world
   var _name = name;
   var _color = color;
-  
+
   this.getColor = (color) => {
     _color = this.color;
     return _color;
   };
-  
+
   this.setColor = (color) => {
     if(typeof color !== 'string') {
       throw error('color is not of the string type');
@@ -69,16 +69,16 @@ Turtle.prototype.attack = function() {
 Turtle.prototype.move = function(up, right, down, left) {
   if(up !== undefined || up !== null) {
     return `${this.name} moved ${up}.`;
-  } 
-  
+  }
+
   if(right !== undefined || right !== null) {
     return `${this.name} moved ${right}.`;
   }
-  
+
   if(down !== undefined || down !== null) {
     return `${this.name} moved ${down}.`;
-  } 
-  
+  }
+
   if(left !== undefined || left !== null) {
     return `${this.name} moved ${left}.`;
   }
@@ -137,7 +137,7 @@ cl('toString method redefined: ', raph.toString());
 Object.getOwnPropertyDescriptor(don, 'color');
 
 Object.defineProperty(mike, 'color', {
-  value: 'blue', enumerable: true, writable: false 
+  value: 'blue', enumerable: true, writable: false
 });
 
 cl('Mike\'s color after definition changes ', raph.getColor())
@@ -154,7 +154,7 @@ Object.defineProperty(example, 'sillyString', {
   get: function() {
     return 'Craaaaazy';
   },
-  
+
   set: function(value) {
     return value;
   }
@@ -167,10 +167,10 @@ cl(example.sillyString);
 
 let Dice = function() {
   'use strict';
-  
+
   let sides = '';
   sides = 6;
-  
+
   Object.defineProperty(this, 'sides', {
     get: function() {
       return `this dice has {this.sides} sides`;
