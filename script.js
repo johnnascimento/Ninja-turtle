@@ -194,3 +194,34 @@ cl('Yellow dice 10 sides ', yellowDice.sides);
 
 let blueDice = new Dice();
 //blueDice.sides = 0;
+
+
+// checking for loop speed
+var myArray = [];
+
+for(var x=0; x<1e6; x++) {
+  myArray.push(x);
+}
+
+console.time('First counter');
+
+var firstCounter = 0;
+
+for(var y=0; y<myArray.length; y++) {
+  firstCounter++;
+}
+
+console.timeEnd('First counter');
+
+
+console.time('Second counter');
+
+var secondCounter = 0;
+var z=0, arrLength = myArray.length;
+
+for(z = 0; z<arrLength;) {
+  secondCounter++;
+  z++;
+}
+
+console.timeEnd('Second counter');

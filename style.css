@@ -8,7 +8,7 @@ article {
 
 section {
   min-height: 25vh;
-  min-width: calc(25vw - 32px);
+  min-width: calc(22vw - 32px);
   display: inline-block;
   position: relative;
   border: 1px solid #e5e5e5;
@@ -56,21 +56,30 @@ section.half-width {
   margin: 4px;
 }
 
+/* check it out later on 
+---------------------------
 .grid-container {
-
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
 
 .grid-item {
-
+  padding: 48px;
 }
 
 .item {
-
+  min-height: 50px;
 }
 
 .flex {
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+*/
+
 .pin-location {
   display: block;
   position: relative;
@@ -251,7 +260,6 @@ section.half-width {
   transform: translate(30px, -50%);
   transition: 300ms ease-in-out;
 }
-
 
 details {
   padding: 8px;
@@ -525,9 +533,9 @@ summary {
   display: block;
   position: absolute;
   top: -10px;
-  bottom: 0px;
+  bottom: 0;
   left: -10px;
-  right: 0px
+  right: 0;
   bottom: auto;
   right: auto;
   margin: 0 auto;
@@ -537,6 +545,20 @@ summary {
 /*   transform: rotateZ(90deg); */
    animation: rotateItTwo 5000s infinite ease-in-out;
   -webkit-animation: rotateItTwo 5s infinite ease-in-out; /* Safari */
+}
+
+@media only screen and (max-width: 768px) {
+  section {
+    min-height: 25vh;
+    min-width: calc(33vw - 16px);
+    display: inline-block;
+    position: relative;
+    border: 1px solid #e5e5e5;
+    vertical-align: top;
+    padding: 16px;
+    margin: 4px;
+  }
+  
 }
 
 /*Animation*/
