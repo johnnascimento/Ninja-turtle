@@ -252,3 +252,36 @@ let flight = {
     return `Up, up and high. ${this.name} soars in the skies`;
   }
 }
+
+superSpeed = {
+  move: function() {
+    console.log(this.name + ' can move faster than a speeding bullet!');
+    return this;
+  }
+}
+
+xRayVision = {
+  xray: function() {
+    console.log(this.name + ' can see right through you!');
+    return this;
+  }
+}
+
+climbWalls = {
+  climb: function() {
+    console.log(`${this.name} is climbing the wall like a spider!`);
+    return this;
+  }
+}
+
+launchWeb = {
+  web: function() {
+    console.log(`${this.name} launched web!`);
+    return this;
+  }
+}
+
+spiderman.mixin(climbWalls, launchWeb);
+
+spiderman.web();
+spiderman.climb();
