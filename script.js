@@ -225,3 +225,31 @@ for(z = 0; z<arrLength;) {
 }
 
 console.timeEnd('Second counter');
+
+
+console.time('Third counter');
+
+var thirdCounter = 0;
+var v=0, arrLength = myArray.length;
+
+while(v<arrLength) {
+  thirdCounter++;
+  v++;
+}
+
+console.timeEnd('Third counter');
+
+(() => {
+console.time('Fourth counter');
+
+var fourthCounter = 0;
+var v=0, arrLength = myArray.length;
+
+do{
+  fourthCounter++;
+  v++;
+}
+while(v<arrLength);
+
+console.timeEnd('Fourth counter');
+})();
