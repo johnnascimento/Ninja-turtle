@@ -242,12 +242,12 @@ Object.defineProperty(antiHeroe, 'changeCostume', {
 });
 
 let villan = Object.create(HeroeVillan);
-Object.defineProperty(villan, 'changeCostume', function() {
+Object.defineProperty(villan, 'changeCostume', {
   writable: true,
   configurable: false,
   enumerable: true,
   value: function() {
-    return ``;
+    return '';
   }
 });
 
