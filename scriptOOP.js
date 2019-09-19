@@ -9,7 +9,7 @@ const Human = {
   legs: 2,
   name: 'name',
   age: 'age',
-  
+
   walk: function() {
     cl('Walking');
   },
@@ -20,7 +20,7 @@ const Human = {
   }
 };
 
-const HeroeVillan = Object.create(Human, { getDressedUp: { 
+const HeroeVillan = Object.create(Human, { getDressedUp: {
       value: function(){
         return `${this.name} run into an alley and put up the super heroe suit`;
       },
@@ -53,6 +53,73 @@ const HeroeVillan = Object.create(Human, { getDressedUp: {
   }
 });
 
+
+/* My awesome mixin object
+Still need improvements such as copy a nest array with nested objects and other arrays */
+Object.defineProperty(Object.prototype, 'mixin', {
+  configurable: false,
+  writable: false,
+  enumerable: false,
+
+  value: function() {
+    for(var i = 0, max = arguments.length; i < max; i++) {
+      if(typeof arguments[i] === 'object') {
+        object = arguments[i];
+
+        for(var property in object) {
+          if(object.hasOwnProperty(property)){
+            if(typeof object[property] === 'object') {
+              this[property] = (object[property].constructor === 'array') ? [] : {};
+              this[property].mixin(object[property]);
+            } else {
+              var description = Object.getOwnPropertyDescriptor(object, property);
+              Object.defineProperty(this, property, description);
+            }
+          }
+        }
+      }
+    }
+    return this;
+  }
+});
+
+/* Object coppier, using the mixin method */
+Object.defineProperty(Object.prototype, 'copy', {
+  configurable: false,
+  writable: false,
+  enumerable: false,
+  value: function() {
+    var object = Object.create(Object.getPrototypeOf(this));
+    object.mixin(this);
+    return object;
+  }
+});
+
+/* Adding methods to the built-in objects
+-----------------------------------------*/
+
+/* Is even or odd number method */
+Number.prototype.isEven = function() {
+  return this%2 === 0;
+};
+
+Number.prototype.isOdd = function() {
+  return this%2 === 1;
+};
+
+/* Adding first and last elem on Array's index
+-----------------------------------------*/
+Array.prototype.first = function() {
+  return this[0];
+};
+
+Array.prototype.last = function() {
+  return this[this.length - 1];
+};
+
+Array.prototype.delete = function(i) {
+  return this.splice(i, 1);
+};
 
 cl(Human);
 cl(Human);
@@ -99,41 +166,16 @@ cl(Object.getPrototypeOf(gwen) === Human);
 cl(Object.getPrototypeOf(venon) === Human); // expected false
 cl(HeroeVillan.isPrototypeOf(spiderman));
 
-/* Adding methods to the built-in objects
------------------------------------------*/
-
-/* Is even or odd number method */
-Number.prototype.isEven = function() {
-  return this%2 === 0;
-};
-
-Number.prototype.isOdd = function() {
-  return this%2 === 1;
-};
 
 let seven = 7;
 
 cl(seven.isEven());
 cl(seven.isOdd());
 
-
-/* Adding first and last elem on Array's index
------------------------------------------*/
-Array.prototype.first = function() {
-  return this[0];
-};
-
-Array.prototype.last = function() {
-  return this[this.length - 1];
-};
-
 justiceLeague = ['Wonder Woman', 'Aquaman', 'Batman', 'The Flash', 'Superman', 'Ajax'];
 cl(justiceLeague.first());
 cl(justiceLeague.last());
 
-Array.prototype.delete = function(i) {
-  return this.splice(i, 1);
-};
 
 justiceLeague.delete(1);
 cl(justiceLeague);
@@ -155,49 +197,6 @@ Object.prototype.melon = function() {
 
 let melonObj = melon();
 melonObj;
-
-/* My awesome mixin object
-Still need improvements such as copy a nest array with nested objects and other arrays */
-let i = 0;
-
-Object.defineProperty(Object.prototype, 'mixin', {
-  configurable: false,
-  writable: false,
-  enumerable: false,
-  
-  value: function() {
-    for(var i = 0, max = arguments.length; i < max; i++) {
-      if(typeof arguments[i] === 'object') {
-        object = arguments[i];
-        
-        for(var property in object) {
-          if(object.hasOwnProperty(property)){
-            if(typeof object[property] === 'object') {
-              this[property] = (object[property].constructor === 'array') ? [] : {};
-              this[property].mixin(object[property]);
-            } else {
-              var description = Object.getOwnPropertyDescriptor(object, property);
-              Object.defineProperty(this, property, description);
-            }
-          }
-        }
-      }
-    }
-    return this;
-  }
-});
-
-/* Object coppier, using the mixin method */
-Object.defineProperty(Object.prototype, 'copy', {
-  configurable: false,
-  writable: false,
-  enumerable: false,
-  value: function() {
-    var object = Object.create(Object.getPrototypeOf(this));
-    object.mixin(this);
-    return object;
-  }
-});
 
 let emptyObj = {};
 let firstNameLastName = {
