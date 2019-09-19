@@ -241,6 +241,16 @@ Object.defineProperty(antiHeroe, 'changeCostume', {
   }
 });
 
+let villan = Object.create(HeroeVillan);
+Object.defineProperty(villan, 'changeCostume', function() {
+  writable: true,
+  configurable: false,
+  enumerable: true,
+  value: function() {
+    return ``;
+  }
+});
+
 let punisher = Object.create(antiHeroe);
 cl('punisher\'s name: ', punisher.name + ' ' + punisher.surname);
 cl('punisher costume change ', punisher.changeCostume);
